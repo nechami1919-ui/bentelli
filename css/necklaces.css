@@ -1,0 +1,28 @@
+/* =========================================================
+   necklaces.css – עיצוב ייחודי לדף שרשראות וצמידים
+   אחד-עשר דגמים. כאן הגלריה בנויה ב-flex (במקום grid),
+   כדי שהשורה האחרונה, עם שלושה דגמים בלבד, תתיישר למרכז.
+   ========================================================= */
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.gallery > li {
+  flex: 0 0 calc(25% - 1.2rem);
+  min-width: 0;
+}
+
+@media (max-width: 1000px) {
+  .gallery > li {
+    flex-basis: calc(50% - .8rem);
+  }
+}
+
+@media (max-width: 420px) {
+  .gallery > li {
+    flex-basis: 100%;
+  }
+}

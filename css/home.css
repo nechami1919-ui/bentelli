@@ -1,0 +1,161 @@
+/* =========================================================
+   home.css – עיצוב ייחודי לדף הבית
+   ========================================================= */
+
+/* אזור הפתיחה */
+.hero {
+  padding: 4.5rem 0;
+  background: linear-gradient(120deg, var(--navy) 0%, var(--navy-2) 100%);
+  color: var(--white);
+  overflow: hidden;
+}
+
+.hero .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6%;
+}
+
+.hero-text {
+  flex: 1 1 46%;
+}
+
+.hero h1 {
+  color: var(--white);
+}
+
+.hero h1 em {
+  color: var(--gold-soft);
+  font-weight: 400;
+}
+
+.hero-text p:not(.eyebrow) {
+  max-width: 26rem;
+  margin-top: 1.2rem;
+  color: #c3cde0;
+  font-size: 1.1rem;
+}
+
+.hero-photo {
+  flex: 1 1 38%;
+  margin: 0;
+  overflow: hidden;
+  outline: 1px solid var(--gold);
+  outline-offset: .8rem;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, .45);
+}
+
+/* אנימציה: התקרבות איטית ועדינה לתמונת הפתיחה */
+.hero-photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  animation: slowzoom 16s ease-in-out infinite alternate;
+}
+
+@keyframes slowzoom {
+  from { transform: scale(1); }
+  to   { transform: scale(1.08); }
+}
+
+/* אריחי קולקציות */
+.collections {
+  padding: 4.5rem 0;
+}
+
+.collections h2 {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.6rem;
+}
+
+.tile {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  color: var(--white);
+  text-decoration: none;
+  box-shadow: var(--shadow);
+}
+
+.tile img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1s ease;
+}
+
+.tile:hover img {
+  transform: scale(1.07);
+}
+
+/* שכבת הצללה בתחתית האריח */
+.tile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgba(10, 23, 48, .88));
+}
+
+.tile span {
+  position: absolute;
+  right: 1.6rem;
+  bottom: 1.3rem;
+  left: 1.6rem;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+}
+
+.tile span::after {
+  content: "←";
+  color: var(--gold-soft);
+  transition: transform .3s;
+}
+
+.tile:hover span::after {
+  transform: translateX(-6px);
+}
+
+@media (max-width: 800px) {
+  .hero .wrap {
+    flex-direction: column-reverse;
+    gap: 2.4rem;
+    text-align: center;
+  }
+
+  .hero-text p:not(.eyebrow) {
+    margin-inline: auto;
+  }
+
+  .hero .btn-row {
+    justify-content: center;
+  }
+
+  .hero-photo {
+    flex: none;
+    width: 70%;
+  }
+}
+
+@media (max-width: 520px) {
+  .tiles {
+    grid-template-columns: 1fr;
+  }
+
+  .tile span {
+    font-size: 1.6rem;
+  }
+}

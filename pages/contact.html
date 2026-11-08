@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="השאירו פרטים להזמנה אישית של תכשיטי יהלומי מעבדה.">
+  <title>הזמנה אישית | BENTELLI</title>
+  <link rel="icon" href="../favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Heebo:wght@300;400;500&family=Montserrat:wght@300;400&display=swap">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/contact.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="logo" href="../index.html" title="לדף הבית">BENTELLI</a>
+    <nav class="main-nav" aria-label="תפריט ראשי">
+      <ul>
+        <li><a href="../index.html">בית</a></li>
+        <li><a href="earrings.html">עגילים</a></li>
+        <li><a href="necklaces.html">שרשראות וצמידים</a></li>
+        <li><a href="about.html">אודות</a></li>
+        <li><a href="contact.html" aria-current="page">הזמנה אישית</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="contact">
+      <div class="wrap">
+        <div class="call">
+          <p class="eyebrow">PERSONAL ORDER</p>
+          <h1>הזמנה אישית</h1>
+          <p>הזמנות מתבצעות בטלפון בלבד. התקשרו, או השאירו פרטים ונחזור אליכם.</p>
+          <a class="big-phone" href="tel:+972501234567">050-1234567</a>
+        </div>
+
+        <form class="lead-form" action="thanks.html" method="get">
+          <h2>השאירו פרטים</h2>
+
+          <div class="form-row">
+            <div class="field">
+              <label class="req" for="fullname">שם מלא</label>
+              <input type="text" id="fullname" name="fullname" required minlength="2" maxlength="40"
+                     pattern="[א-תA-Za-z \-']{2,40}" placeholder=" " autocomplete="name"
+                     title="אותיות בעברית או באנגלית בלבד">
+            </div>
+            <div class="field">
+              <label class="req" for="phone">טלפון נייד</label>
+              <input type="tel" id="phone" name="phone" required pattern="05\d-?\d{7}" placeholder=" "
+                     autocomplete="tel" title="מספר נייד ישראלי, לדוגמה 050-1234567">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="email">אימייל (לא חובה)</label>
+              <input type="email" id="email" name="email" placeholder=" " autocomplete="email">
+            </div>
+            <div class="field">
+              <label for="model">דגם שמעניין אתכם (לא חובה)</label>
+              <input type="text" id="model" name="model" list="models" placeholder=" ">
+              <datalist id="models">
+              <option value="BE-01 עגילי מטפס"></option>
+              <option value="BE-02 עגילי פרח"></option>
+              <option value="BE-03 עגילי חישוק"></option>
+              <option value="BE-04 עגילי ענף"></option>
+              <option value="BE-05 עגילי טניס תלויים"></option>
+              <option value="BE-06 עגילי שתי שורות"></option>
+              <option value="BE-07 עגילי אשכול פרחים"></option>
+              <option value="BE-08 עגילי מרקיז"></option>
+              <option value="BE-09 עגילי ג׳קט"></option>
+              <option value="BB-01 צמיד הילה כחול"></option>
+              <option value="BN-01 שרשרת אשכול"></option>
+              <option value="BN-02 שרשרת תליון טיפות"></option>
+              <option value="BN-03 שרשרת חמש אבנים"></option>
+              <option value="BN-04 שרשרת שלושה פרחים"></option>
+              <option value="BN-05 שרשרת גן פרחים"></option>
+              <option value="BN-06 שרשרת טניס מדורגת"></option>
+              <option value="BN-07 שרשרת לב"></option>
+              </datalist>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="calltime">שעה נוחה לחזרה (לא חובה)</label>
+              <input type="time" id="calltime" name="calltime" min="08:00" max="20:00">
+            </div>
+            <div class="field wide">
+              <label for="notes">הערות (לא חובה)</label>
+              <textarea id="notes" name="notes" maxlength="300"></textarea>
+            </div>
+          </div>
+
+          <div class="consent">
+            <input type="checkbox" id="consent" name="consent" value="yes" required>
+            <label for="consent">מאשר/ת חזרה אליי בטלפון</label>
+          </div>
+
+          <div class="form-actions">
+            <button class="btn btn-gold" type="submit">שליחה</button>
+            <button class="btn btn-reset" type="reset">איפוס</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 BENTELLI – כל הזכויות שמורות.</p>
+    <p>
+      <a href="about.html">אודות</a> ·
+      <a href="tel:+972501234567">050-1234567</a> ·
+      <a href="mailto:info@bentelli.example?subject=פנייה מהאתר">info@bentelli.example</a>
+    </p>
+  </footer>
+
+</body>
+</html>

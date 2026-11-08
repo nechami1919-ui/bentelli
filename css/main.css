@@ -1,0 +1,387 @@
+/* =========================================================
+   BENTELLI – main.css
+   הגדרות משותפות לכל דפי האתר
+   (אין שימוש בסלקטורים של id – רק class, תגיות, מאפיינים ופסאודו)
+   ========================================================= */
+
+/* ---------- משתני CSS (נושא ללמידה עצמית) ---------- */
+:root {
+  --navy: #0a1730;
+  --navy-2: #13294b;
+  --sapphire: #1f3f73;
+  --gold: #b89b5e;
+  --gold-soft: #d8c196;
+  --ivory: #f8f5ef;
+  --stone: #ebe6db;
+  --ink: #1b2231;
+  --muted: #6b707b;
+  --white: #ffffff;
+  --radius: 3px;
+  --shadow: 0 16px 36px rgba(10, 23, 48, .18);
+  --wrap: 1160px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: 'Heebo', Arial, sans-serif;
+  font-weight: 300;
+  color: var(--ink);
+  background: var(--ivory);
+  line-height: 1.8;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+h1, h2, h3 {
+  font-family: 'Cormorant Garamond', 'Heebo', serif;
+  font-weight: 500;
+  color: var(--navy);
+  line-height: 1.15;
+}
+
+h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); }
+h2 { font-size: clamp(1.8rem, 3.5vw, 2.5rem); }
+
+a {
+  color: var(--sapphire);
+}
+
+/* עוטף תוכן – רוחב באחוזים */
+.wrap {
+  width: 90%;
+  max-width: var(--wrap);
+  margin-inline: auto;
+}
+
+.eyebrow {
+  margin-bottom: .6rem;
+  color: var(--gold);
+  font-family: 'Montserrat', sans-serif;
+  font-size: .72rem;
+  font-weight: 400;
+  letter-spacing: .38em;
+}
+
+/* ---------- כותרת עליונה (header) ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: .8rem 2rem;
+  padding: .9rem 5%;
+  background: var(--navy);
+  border-bottom: 1px solid rgba(184, 155, 94, .35);
+}
+
+/* לוגו בתיבה דקה – בהשראת הלוגו של המותג */
+.logo {
+  padding: .4rem .6rem .4rem 1rem;
+  border: 1px solid var(--gold);
+  color: var(--white);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 300;
+  letter-spacing: .4em;
+  text-decoration: none;
+  transition: background .3s, color .3s;
+}
+
+.logo:hover {
+  background: var(--gold);
+  color: var(--navy);
+}
+
+.main-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .3rem 2rem;
+  list-style: none;
+}
+
+.main-nav a {
+  position: relative;
+  display: block;
+  padding: .3rem 0;
+  color: #cfd6e4;
+  font-size: .95rem;
+  letter-spacing: .04em;
+  text-decoration: none;
+  transition: color .3s;
+}
+
+/* קו זהב שמתרחב מתחת לקישור (פסאודו-אלמנט) */
+.main-nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 1px;
+  background: var(--gold);
+  transition: width .35s;
+}
+
+.main-nav a:hover,
+.main-nav a[aria-current="page"] {
+  color: var(--gold-soft);
+}
+
+.main-nav a:hover::after,
+.main-nav a[aria-current="page"]::after {
+  width: 100%;
+}
+
+/* ---------- כפתורים ---------- */
+.btn {
+  display: inline-block;
+  padding: .8rem 2rem;
+  border: 1px solid var(--gold);
+  border-radius: var(--radius);
+  font-family: inherit;
+  font-size: .95rem;
+  font-weight: 400;
+  letter-spacing: .06em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background .3s, color .3s;
+}
+
+.btn-gold {
+  background: var(--gold);
+  color: var(--navy);
+}
+
+.btn-gold:hover {
+  background: var(--gold-soft);
+}
+
+.btn-line {
+  background: transparent;
+  color: var(--gold-soft);
+}
+
+.btn-line:hover {
+  background: var(--gold);
+  color: var(--navy);
+}
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.8rem;
+}
+
+/* ---------- ראש עמוד מוצרים ---------- */
+.page-head {
+  padding: 4rem 0 1rem;
+  text-align: center;
+}
+
+.page-head p:last-child {
+  margin-top: .6rem;
+  color: var(--muted);
+}
+
+/* ---------- גלריית מוצרים (grid – נושא ללמידה עצמית) ---------- */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 2.2rem 1.6rem;
+  padding: 2rem 0 4rem;
+  list-style: none;
+}
+
+.piece-photo {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  background: var(--stone);
+  box-shadow: var(--shadow);
+}
+
+.piece-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .9s ease, filter .4s;
+}
+
+/* מסגרת זהב דקה שמופיעה במעבר עכבר */
+.piece-photo::after {
+  content: "";
+  position: absolute;
+  inset: .8rem;
+  border: 1px solid var(--gold-soft);
+  opacity: 0;
+  transition: opacity .4s;
+  pointer-events: none;
+}
+
+.piece:hover img {
+  transform: scale(1.06);
+  filter: brightness(1.05) contrast(1.04);
+}
+
+.piece:hover .piece-photo::after {
+  opacity: 1;
+}
+
+.piece figcaption {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: .6rem;
+  padding-top: .9rem;
+  border-bottom: 1px solid var(--stone);
+}
+
+.piece h2 {
+  font-size: 1.4rem;
+}
+
+.piece .code {
+  color: var(--gold);
+  font-family: 'Montserrat', sans-serif;
+  font-size: .72rem;
+  letter-spacing: .2em;
+}
+
+/* ---------- פס הזמנה בטלפון (משותף) ---------- */
+.phone-band {
+  padding: 3.2rem 0;
+  background: linear-gradient(120deg, var(--navy), var(--navy-2));
+  color: var(--white);
+}
+
+.phone-band .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.4rem 2rem;
+}
+
+.phone-band h2 {
+  color: var(--white);
+}
+
+.phone-band p {
+  color: var(--gold-soft);
+}
+
+.phone-band a.big-phone {
+  color: var(--gold-soft);
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.6rem, 4vw, 2.3rem);
+  font-weight: 300;
+  letter-spacing: .12em;
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold);
+}
+
+.phone-band a.big-phone:hover {
+  color: var(--white);
+}
+
+/* ---------- כותרת תחתונה (footer) ---------- */
+.site-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: .6rem 2rem;
+  padding: 1.6rem 5%;
+  background: var(--navy);
+  border-top: 1px solid rgba(184, 155, 94, .35);
+  color: #aeb8cc;
+  font-size: .9rem;
+}
+
+.site-footer a {
+  color: var(--gold-soft);
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  color: var(--white);
+  text-decoration: underline;
+}
+
+/* ---------- אנימציה: כניסה עדינה של בלוקים בדף ---------- */
+main > * {
+  animation: fadeUp .8s ease both;
+}
+
+main > *:nth-child(2) { animation-delay: .12s; }
+main > *:nth-child(n+3) { animation-delay: .24s; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- רספונסיביות ---------- */
+@media (max-width: 760px) {
+  .site-header {
+    flex-direction: column;
+    gap: .9rem;
+  }
+
+  .main-nav ul {
+    justify-content: center;
+    gap: .2rem 1.4rem;
+  }
+
+  .phone-band .wrap {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .site-footer {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 420px) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .logo {
+    font-size: 1.05rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
